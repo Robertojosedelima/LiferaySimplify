@@ -21,3 +21,8 @@ Repositório para ser usado pelos candidatos à vaga de Desenvolvedor Júnior Ba
 - Descrever as funcionalidades do software
 
 Youtube referencia: https://www.youtube.com/watch?v=IjProDV001o] git do Desafio :https://github.com/simplify-tec/desafio-junior-backend-simplify/blob/main/README.md
+
+## O que será feito
+
+- documentação swegger 
+
