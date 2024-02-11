@@ -25,10 +25,6 @@ Youtube referencia: https://www.youtube.com/watch?v=IjProDV001o] git do Desafio 
 ## O que será feito
 
 
---devolver crud no padrão de mensagem rest e restfull ok
---preciso aplicar tratamento de exceções no crud      ok
---implementar regra de negocio @valid no DTO          ok
---implementar @valid no DTO                           ok
 --IMPLEMENTAR SWEGGER NO PROJETO 
 --implementar mecanismos de testes automatizados.
 --review no readme para uma documentação completa.

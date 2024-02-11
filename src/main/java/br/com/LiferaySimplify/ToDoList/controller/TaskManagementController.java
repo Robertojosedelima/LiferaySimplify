@@ -30,7 +30,7 @@ public class TaskManagementController {
 
 	}
 	@PutMapping
-	public ResponseEntity<TaskManagementDto> updateTask(@RequestBody @Valid TaskManagementDto taskManagementDto) {
+	public ResponseEntity<String> updateTask(@RequestBody @Valid TaskManagementDto taskManagementDto) throws IllegalAccessException {
 
 		return taskManagementService.update(taskManagementDto);
 

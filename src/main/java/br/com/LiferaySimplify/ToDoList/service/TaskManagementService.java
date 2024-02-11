@@ -1,6 +1,7 @@
 package br.com.LiferaySimplify.ToDoList.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -19,28 +20,33 @@ public class TaskManagementService {
 
 	public ResponseEntity<String> add(TaskManagementDto taskManagementDto) {
 		try {
-			
-			if (taskManagementDto.getAccomplished().equals(true)){
+
+			if (taskManagementDto.getAccomplished().equals(true)) {
 				throw new IllegalArgumentException("It is not allowed to create with accomplished status.");
 			}
-				
-			
+
 			TaskManagementModel taskManagementModel = taskManagementRepository
 					.save(taskManagementDto.toModel(taskManagementDto));
 			taskManagementDto.setId(taskManagementModel.getId());
 			return ResponseEntity.status(HttpStatus.CREATED).body("new task add sucessful!");
-		
+
 		} catch (Exception e) {
-			 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("ErrorTask: " + e.getMessage());
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("ErrorTask: " + e.getMessage());
 		}
 	}
 
-	
+	public ResponseEntity<String> update(TaskManagementDto taskManagementDto) throws IllegalAccessException {
+		Optional<TaskManagementModel> taskManagementModel = taskManagementRepository
+				.findById(taskManagementDto.getId());
+		if (taskManagementModel.get().getAccomplished().equals(true)
+				&& taskManagementDto.getAccomplished().equals(false)) {
 
-	public ResponseEntity<TaskManagementDto> update(TaskManagementDto taskManagementDto) {
+			throw new IllegalAccessException("task already completed!");
+		}
 
 		taskManagementRepository.save(taskManagementDto.toModel(taskManagementDto));
-		return ResponseEntity.status(HttpStatus.OK).body(taskManagementDto);
+		return ResponseEntity.status(HttpStatus.OK)
+				.body("Update Task ID: " + taskManagementDto.getId() + " realizada com sucesso!");
 	}
 
 	public ResponseEntity<String> delete(TaskManagementDto taskManagementDto) {
