@@ -1,0 +1,8 @@
+br/com/LiferaySimplify/ToDoList/repository/TaskManagementRepository.class
+br/com/LiferaySimplify/ToDoList/LiferaySimplifyApplication.class
+br/com/LiferaySimplify/ToDoList/model/TaskManagementModel.class
+br/com/LiferaySimplify/ToDoList/controller/TaskManagementController.class
+br/com/LiferaySimplify/ToDoList/Enums/PriorityEnum.class
+br/com/LiferaySimplify/ToDoList/service/TaskManagementService.class
+br/com/LiferaySimplify/ToDoList/dto/TaskManagementDto.class
+br/com/LiferaySimplify/ToDoList/infra/ControllerExceptionHandler.class

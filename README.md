@@ -29,3 +29,5 @@ Youtube referencia: https://www.youtube.com/watch?v=IjProDV001o] git do Desafio 
 --implementar mecanismos de testes automatizados.
 --review no readme para uma documentação completa.
 
+
+--implementar sort

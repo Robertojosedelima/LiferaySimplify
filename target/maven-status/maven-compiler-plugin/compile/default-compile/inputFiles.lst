@@ -1,0 +1,8 @@
+/home/ROBERTO/Documents/workspace-spring-tool-suite-4-4.20.1.RELEASE/LiferaySimplify/src/main/java/br/com/LiferaySimplify/ToDoList/controller/TaskManagementController.java
+/home/ROBERTO/Documents/workspace-spring-tool-suite-4-4.20.1.RELEASE/LiferaySimplify/src/main/java/br/com/LiferaySimplify/ToDoList/Enums/PriorityEnum.java
+/home/ROBERTO/Documents/workspace-spring-tool-suite-4-4.20.1.RELEASE/LiferaySimplify/src/main/java/br/com/LiferaySimplify/ToDoList/LiferaySimplifyApplication.java
+/home/ROBERTO/Documents/workspace-spring-tool-suite-4-4.20.1.RELEASE/LiferaySimplify/src/main/java/br/com/LiferaySimplify/ToDoList/repository/TaskManagementRepository.java
+/home/ROBERTO/Documents/workspace-spring-tool-suite-4-4.20.1.RELEASE/LiferaySimplify/src/main/java/br/com/LiferaySimplify/ToDoList/infra/ControllerExceptionHandler.java
+/home/ROBERTO/Documents/workspace-spring-tool-suite-4-4.20.1.RELEASE/LiferaySimplify/src/main/java/br/com/LiferaySimplify/ToDoList/model/TaskManagementModel.java
+/home/ROBERTO/Documents/workspace-spring-tool-suite-4-4.20.1.RELEASE/LiferaySimplify/src/main/java/br/com/LiferaySimplify/ToDoList/service/TaskManagementService.java
+/home/ROBERTO/Documents/workspace-spring-tool-suite-4-4.20.1.RELEASE/LiferaySimplify/src/main/java/br/com/LiferaySimplify/ToDoList/dto/TaskManagementDto.java
