@@ -3,6 +3,7 @@ package br.com.LiferaySimplify.ToDoList.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,25 +24,25 @@ public class TaskManagementController {
 	TaskManagementService taskManagementService;
 	
 	@PostMapping
-	public TaskManagementDto addTask(@RequestBody @Valid TaskManagementDto taskManagementDto) {
+	public ResponseEntity<String> addTask(@RequestBody @Valid TaskManagementDto taskManagementDto) {
 
 		return taskManagementService.add(taskManagementDto);
 
 	}
 	@PutMapping
-	public TaskManagementDto updateTask(@RequestBody @Valid TaskManagementDto taskManagementDto) {
+	public ResponseEntity<TaskManagementDto> updateTask(@RequestBody @Valid TaskManagementDto taskManagementDto) {
 
 		return taskManagementService.update(taskManagementDto);
 
 	}
 	@DeleteMapping
-	public String deleteTask(@RequestBody @Valid TaskManagementDto taskManagementDto) {
+	public ResponseEntity<String> deleteTask(@RequestBody @Valid TaskManagementDto taskManagementDto) {
 
 		return taskManagementService.delete(taskManagementDto);
 
 	}
 	@GetMapping
-	public List<TaskManagementDto> searchTask() {
+	public ResponseEntity<List<TaskManagementDto>> searchTask() {
 
 		return taskManagementService.search();
 

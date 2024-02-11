@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import br.com.LiferaySimplify.ToDoList.dto.TaskManagementDto;
 import br.com.LiferaySimplify.ToDoList.model.TaskManagementModel;
@@ -15,29 +17,40 @@ public class TaskManagementService {
 	@Autowired
 	TaskManagementRepository taskManagementRepository;
 
-	public TaskManagementDto add(TaskManagementDto taskManagementDto) {
-
-		TaskManagementModel taskManagementModel = taskManagementRepository
-				.save(taskManagementDto.toModel(taskManagementDto));
-		taskManagementDto.setId(taskManagementModel.getId());
-		return taskManagementDto;
-
+	public ResponseEntity<String> add(TaskManagementDto taskManagementDto) {
+		try {
+			
+			if (taskManagementDto.getAccomplished().equals(true)){
+				throw new IllegalArgumentException("It is not allowed to create with accomplished status.");
+			}
+				
+			
+			TaskManagementModel taskManagementModel = taskManagementRepository
+					.save(taskManagementDto.toModel(taskManagementDto));
+			taskManagementDto.setId(taskManagementModel.getId());
+			return ResponseEntity.status(HttpStatus.CREATED).body("new task add sucessful!");
+		
+		} catch (Exception e) {
+			 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("ErrorTask: " + e.getMessage());
+		}
 	}
 
-	public TaskManagementDto update(TaskManagementDto taskManagementDto) {
+	
+
+	public ResponseEntity<TaskManagementDto> update(TaskManagementDto taskManagementDto) {
 
 		taskManagementRepository.save(taskManagementDto.toModel(taskManagementDto));
-		return taskManagementDto;
+		return ResponseEntity.status(HttpStatus.OK).body(taskManagementDto);
 	}
 
-	public String delete(TaskManagementDto taskManagementDto) {
+	public ResponseEntity<String> delete(TaskManagementDto taskManagementDto) {
 		taskManagementRepository.deleteById(taskManagementDto.toModel(taskManagementDto).getId());
-		return "Delete Task ID: "+ taskManagementDto.getId()+" realizada com sucesso!";
-		
+		return ResponseEntity.status(HttpStatus.OK)
+				.body("Delete Task ID: " + taskManagementDto.getId() + " realizada com sucesso!");
 
 	}
 
-	public List<TaskManagementDto> search() {
+	public ResponseEntity<List<TaskManagementDto>> search() {
 		// Obtém todos os modelos do repositório
 		Iterable<TaskManagementModel> taskManagementModelsIterable = taskManagementRepository.findAll();
 
@@ -49,6 +62,6 @@ public class TaskManagementService {
 		List<TaskManagementDto> taskManagementDtos = taskManagementModels.stream().map(TaskManagementModel::toDto)
 				.collect(Collectors.toList());
 
-		return taskManagementDtos;
+		return ResponseEntity.status(HttpStatus.OK).body(taskManagementDtos);
 	}
 }
